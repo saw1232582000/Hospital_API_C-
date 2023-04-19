@@ -1,5 +1,6 @@
 ﻿using HospitalDemo.Data;
 using HospitalDemo.Models.Bill;
+using HospitalDemo.Models.BillItem;
 using HospitalDemo.Models.InventoryItem;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -127,6 +128,13 @@ namespace HospitalDemo.Controllers
             await dbContext.SaveChangesAsync();
             return Ok(item_to_add);
         }
+
+        //[HttpPost]
+        //[Route("Get_all_inventory_by_billItems")]
+        //public async Task<IActionResult> Get_all_inv_by_bill_item([FromBody] BillItem_Request_Model bill_items)
+        //{
+          
+        //}
 
         [HttpPut]
         [Route("update_item/{id}")]

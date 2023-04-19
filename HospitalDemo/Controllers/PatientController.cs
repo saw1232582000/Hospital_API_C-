@@ -131,7 +131,7 @@ namespace HospitalDemo.Controllers
                 created_time = DateTime.Now,
                 gender =addPatient.gender,
                 created_user_id = 0,
-                date_of_birth = addPatient.date_of_birth,
+                date_of_birth = addPatient.date_of_birth.AddDays(1),
                 updated_time = DateTime.Now,
                 updated_user_id = 0
             };

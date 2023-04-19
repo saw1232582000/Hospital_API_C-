@@ -47,6 +47,7 @@ namespace HospitalDemo.Controllers
                 s.name = data.name;
                 s.price = data.price;
                 s.uom_id = data.id;
+                s.created_time = data.created_time;
                 s.uom = new UOM_Request_model();
                 s.uom.name = uom.name;
                 s.uom.description = uom.description;
@@ -54,7 +55,7 @@ namespace HospitalDemo.Controllers
                 s.category_id = data.category_id;
                 s.category.name = category.name;
                 s.category.description = category.description;
-
+                
                 saleitem.Add(s);
             }
             return Ok(saleitem);
@@ -84,6 +85,7 @@ namespace HospitalDemo.Controllers
                 s.name = data.name;
                 s.price = data.price;
                 s.uom_id = data.id;
+                s.created_time = data.created_time;
                 s.uom = new UOM_Request_model();
                 s.uom.name = uom.name;
                 s.uom.description = uom.description;

@@ -1,6 +1,7 @@
 ﻿using HospitalDemo.Data;
 using HospitalDemo.Models.Bill;
 using HospitalDemo.Models.BillItem;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -36,28 +37,45 @@ namespace HospitalDemo.Controllers
             return Ok(data);
         }
 
+        [HttpGet]
+        [Route("get_by_bill_id/{id}")]
+        public async Task<IActionResult> Get_bill_by_billid([FromRoute] int id)
+        {
+            var data =await dbContext.billitem.Where(b => b.bill_id == id).ToListAsync();
+            if (data == null)
+            {
+                return NotFound();
+            }
+            return Ok(data);
+        }
+
+        [Authorize]
         [HttpPost]
         [Route("Add_billitem")]
-        public async Task<IActionResult> Add_billitem([FromBody] BillItem_Request_Model b)
+        public async Task<IActionResult> Add_billitem([FromBody] List< BillItem_Request_Model> bi)
         {
-            var bill_to_add = new Billitem();
-            bill_to_add.id = rng.Next(1, 1001);
-            bill_to_add.created_time = DateTime.UtcNow;
-            bill_to_add.updated_time = DateTime.UtcNow;
-            bill_to_add.sales_service_item_id = b.sales_service_item_id;
-            bill_to_add.name = b.name;
-            bill_to_add.quantity = b.quantity;
-            bill_to_add.uom = b.uom;
-            bill_to_add.price = b.price;
-            bill_to_add.subtotal = b.subtotal;
-            bill_to_add.remark = b.remark;
-            bill_to_add.created_user_id = 0;
-            bill_to_add.updated_user_id = 0;
-            bill_to_add.bill_id = b.bill_id;
+            foreach( var b in bi)
+            {
+                var bill_to_add = new Billitem();
+                bill_to_add.id = rng.Next(1, 1001);
+                bill_to_add.created_time = DateTime.UtcNow;
+                bill_to_add.updated_time = DateTime.UtcNow;
+                bill_to_add.sales_service_item_id = b.sales_service_item_id;
+                bill_to_add.name = b.name;
+                bill_to_add.quantity = b.quantity;
+                bill_to_add.uom = b.uom;
+                bill_to_add.price = b.price;
+                bill_to_add.subtotal = b.subtotal;
+                bill_to_add.remark = b.remark;
+                bill_to_add.created_user_id = 0;
+                bill_to_add.updated_user_id = 0;
+                bill_to_add.bill_id = b.bill_id;
 
-            await dbContext.billitem.AddAsync(bill_to_add);
+                 dbContext.billitem.Add(bill_to_add);
+                 dbContext.SaveChanges();
+            }
             await dbContext.SaveChangesAsync();
-            return Ok(bill_to_add);
+            return Ok(bi);
         }
 
         [HttpPut]

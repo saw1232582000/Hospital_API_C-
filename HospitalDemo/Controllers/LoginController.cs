@@ -45,7 +45,7 @@ namespace HospitalDemo.Controllers
             _config["Jwt:Issuer"],
             _config["Jwt:Audience"],
             claims,
-            expires: DateTime.Now.AddMinutes(40),
+            expires: DateTime.Now.AddMinutes(1),
             signingCredentials: credentials);
             var tokenString = new JwtSecurityTokenHandler().WriteToken(token);
             var access_token = tokenString;
@@ -149,11 +149,11 @@ namespace HospitalDemo.Controllers
                 return Unauthorized("unknow username");
             }
 
-            var user = await dbContext.RefreshToken.FirstOrDefaultAsync(item => item.userName == username && item.refresh_token == tokenresponse.refresh_token);
-            if (user == null)
-            {
-                return NotFound("no user in database");
-            }
+            //var user = await dbContext.RefreshToken.FirstOrDefaultAsync(item => item.userName == username && item.refresh_token == tokenresponse.refresh_token);
+            //if (user == null)
+            //{
+            //    return NotFound("no user in database");
+            //}
             var response = TokenAuthenticate(username, principal.Claims.ToArray()).Result;
             return Ok(response);
         }

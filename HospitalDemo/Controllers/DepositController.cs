@@ -26,6 +26,13 @@ namespace HospitalDemo.Controllers
         }
 
         [HttpGet]
+        [Route("get_deposit/active/{id}")]
+        public  IActionResult Get_deposit_by_patientId([FromRoute]int id)
+        {
+            return Ok( dbContext.deposit.Where(d => d.patient_id == id).ToList());
+        }
+
+        [HttpGet]
         [Route("get_deposit_with_patient")]
         public async Task<IActionResult> Get_deposit_with_patient()
         {

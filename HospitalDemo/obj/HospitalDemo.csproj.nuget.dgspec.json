@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\User\\source\\repos\\HospitalDemo_Postgres\\HospitalDemo\\HospitalDemo.csproj": {}
+    "C:\\Users\\User\\source\\repos\\Hospital_API_C#\\HospitalDemo\\HospitalDemo.csproj": {}
   },
   "projects": {
-    "C:\\Users\\User\\source\\repos\\HospitalDemo_Postgres\\HospitalDemo\\HospitalDemo.csproj": {
+    "C:\\Users\\User\\source\\repos\\Hospital_API_C#\\HospitalDemo\\HospitalDemo.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\source\\repos\\HospitalDemo_Postgres\\HospitalDemo\\HospitalDemo.csproj",
+        "projectUniqueName": "C:\\Users\\User\\source\\repos\\Hospital_API_C#\\HospitalDemo\\HospitalDemo.csproj",
         "projectName": "HospitalDemo",
-        "projectPath": "C:\\Users\\User\\source\\repos\\HospitalDemo_Postgres\\HospitalDemo\\HospitalDemo.csproj",
+        "projectPath": "C:\\Users\\User\\source\\repos\\Hospital_API_C#\\HospitalDemo\\HospitalDemo.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\source\\repos\\HospitalDemo_Postgres\\HospitalDemo\\obj\\",
+        "outputPath": "C:\\Users\\User\\source\\repos\\Hospital_API_C#\\HospitalDemo\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -65,6 +65,10 @@
             "Microsoft.IdentityModel.Tokens": {
               "target": "Package",
               "version": "[6.27.0, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
             },
             "Npgsql.EntityFrameworkCore.PostgreSQL": {
               "target": "Package",

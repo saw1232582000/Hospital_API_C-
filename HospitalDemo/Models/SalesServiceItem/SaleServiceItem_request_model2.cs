@@ -12,7 +12,7 @@ namespace HospitalDemo.Models.SalesServiceItem
         public int category_id { get; set; }
         public UOM_Request_model uom { get; set; }
         public Category_Request_model category{ get; set; }
-
+        public DateTime created_time { get; set; }
         public Boolean is_active { get; set; }
     }
 }
